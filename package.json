@@ -1,0 +1,11 @@
+{
+  "name": "a-project",
+  "version": "0.1.0",
+  "repository": "git@github.com:benard-g/a-project.git",
+  "author": "Guillaume BENARD <guillaume@benard.io>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "v14"
+  }
+}
