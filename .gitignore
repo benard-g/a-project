@@ -120,3 +120,7 @@ dist
 
 # MacOS
 .DS_Store
+
+# Build folder
+build/
+dist/
