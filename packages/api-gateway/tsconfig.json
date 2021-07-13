@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.production.json",
+  "exclude": [],
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    /* Enable incremental compilation in dev-mode */
+    "incremental": true,
+    "composite": true,
+    "tsBuildInfoFile": "build/.ts-build-info.json"
+  }
+}

@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "yarn dev:web-app",
+    "dev": "concurrently 'yarn dev:api-gateway' 'yarn dev:web-app'",
+    "dev:api-gateway": "yarn workspace @a-project/api-gateway run dev",
     "dev:web-app": "yarn workspace @a-project/web-app run start"
   },
   "engines": {
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "concurrently": "^6.2.0",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-only-warn": "^1.0.2",

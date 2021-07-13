@@ -1,0 +1,24 @@
+{
+  "name": "@a-project/api-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./build/main.js",
+    "build": "tsc -p tsconfig.production.json",
+    "dev": "tsc-watch -p tsconfig.json --onSuccess 'yarn start' --preserveWatchOutput",
+    "test": "yarn test:lint",
+    "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
+  },
+  "dependencies": {
+    "pino": "^6.12.0",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "^16.3.1",
+    "@types/pino": "^6.3.9",
+    "pino-pretty": "^5.1.1",
+    "tsc-watch": "^4.4.0",
+    "typescript": "^4.3.5"
+  }
+}
