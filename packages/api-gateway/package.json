@@ -6,7 +6,8 @@
     "start": "node ./build/main.js",
     "build": "tsc -p tsconfig.production.json",
     "dev": "tsc-watch -p tsconfig.json --onSuccess 'yarn start' --preserveWatchOutput",
-    "test": "yarn test:lint",
+    "test": "yarn test:lint && yarn test:jest",
+    "test:jest": "yarn jest --coverage",
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
   },
   "dependencies": {
@@ -17,7 +18,9 @@
     "@tsconfig/node14": "^1.0.1",
     "@types/node": "^16.3.1",
     "@types/pino": "^6.3.9",
+    "jest": "^27.0.6",
     "pino-pretty": "^5.1.1",
+    "ts-jest": "^27.0.3",
     "tsc-watch": "^4.4.0",
     "typescript": "^4.3.5"
   }

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "yarn test:lint && yarn test:jest",
+    "test": "yarn test:lint && yarn test:jest --coverage",
     "test:jest": "react-scripts test --watchAll=false",
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts,tsx}'",
     "eject": "react-scripts eject"

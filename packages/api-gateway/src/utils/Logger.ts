@@ -4,8 +4,8 @@ type ContextData = Record<string, any>;
 
 interface Options {
   data?: ContextData;
-  enabled?: boolean;
-  prettyPrint?: boolean;
+  enabled: boolean;
+  prettyPrint: boolean;
 }
 
 export class Logger {
@@ -17,8 +17,8 @@ export class Logger {
 
   constructor(options: Options) {
     this.data = options.data || {};
-    this.enabled = options.enabled !== undefined ? options.enabled : true;
-    this.prettyPrint = !!options.prettyPrint;
+    this.enabled = options.enabled;
+    this.prettyPrint = options.prettyPrint;
 
     this.logger = Pino({
       base: this.data,
