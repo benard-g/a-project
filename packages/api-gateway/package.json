@@ -11,6 +11,9 @@
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
   },
   "dependencies": {
+    "apollo-server-fastify": "^3.0.0",
+    "fastify": "^3.19.1",
+    "graphql": "^15.5.1",
     "pino": "^6.12.0",
     "source-map-support": "^0.5.19"
   },

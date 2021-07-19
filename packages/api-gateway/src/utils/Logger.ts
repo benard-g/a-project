@@ -4,39 +4,39 @@ type ContextData = Record<string, any>;
 
 interface Options {
   data?: ContextData;
-  enabled: boolean;
-  prettyPrint: boolean;
+  enabled?: boolean;
+  minLevel?: 'debug' | 'info' | 'warn' | 'error';
+  prettyPrint?: boolean;
 }
 
 export class Logger {
-  private readonly enabled: boolean;
-  private readonly prettyPrint: boolean;
-  private readonly data: ContextData;
-
   private readonly logger: Pino.Logger;
 
-  constructor(options: Options) {
-    this.data = options.data || {};
-    this.enabled = options.enabled;
-    this.prettyPrint = options.prettyPrint;
+  private constructor(pinoLogger: Pino.Logger) {
+    this.logger = pinoLogger;
+  }
 
-    this.logger = Pino({
-      base: this.data,
-      prettyPrint: this.prettyPrint,
-      enabled: this.enabled,
-      timestamp: true,
-    });
+  public static createNew(options: Options) {
+    const {
+      data = {},
+      enabled = true,
+      minLevel = 'debug',
+      prettyPrint = false,
+    } = options;
+
+    return new Logger(
+      Pino({
+        base: data,
+        enabled,
+        level: minLevel,
+        prettyPrint,
+        timestamp: true,
+      }),
+    );
   }
 
   public child(data: ContextData) {
-    return new Logger({
-      enabled: this.enabled,
-      prettyPrint: this.prettyPrint,
-      data: {
-        ...this.data,
-        ...data,
-      },
-    });
+    return new Logger(this.logger.child(data));
   }
 
   public debug(message: string, context?: ContextData): void {

@@ -1,17 +1,22 @@
 import 'source-map-support/register';
 
-import { loadConfig } from './config/index';
+import { loadConfig } from './config';
+import { createServer } from './server';
 import { Logger } from './utils/Logger';
 
 const config = loadConfig();
 
-const logger = new Logger({
-  prettyPrint: config.NODE_ENV === 'development',
+const logger = Logger.createNew({
   enabled: config.NODE_ENV !== 'test',
+  minLevel: config.LOG_LEVEL,
+  prettyPrint: config.NODE_ENV === 'development',
 });
 
 export async function main() {
-  logger.info('Hello world!');
+  logger.info('Server starting...');
+  const server = await createServer(logger);
+  await server.listen(config.PORT);
+  logger.info('Server started', { port: config.PORT });
 }
 
 if (require.main === module) {
