@@ -17,7 +17,7 @@ export function registerLoggerPlugin(logger: Logger): PluginDefinition {
           for (const error of errors) {
             const err = error.originalError || error;
             if (err instanceof GraphQLError || err instanceof ApolloError) {
-              logger.info('[graphql] Error handled', { err });
+              logger.info('[graphql] Handled expected error', { err });
             } else {
               logger.error('[graphql] Internal server error', { err });
             }
