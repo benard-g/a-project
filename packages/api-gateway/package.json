@@ -11,12 +11,18 @@
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.1",
     "apollo-server-fastify": "^3.0.0",
+    "class-validator": "^0.13.1",
     "fastify": "^3.19.1",
+    "fastify-plugin": "^3.0.0",
     "graphql": "^15.5.1",
     "pino": "^6.12.0",
+    "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19",
-    "tsyringe": "^4.6.0"
+    "tsyringe": "^4.6.0",
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",

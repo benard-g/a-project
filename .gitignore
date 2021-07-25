@@ -124,3 +124,6 @@ dist
 # Build folder
 build/
 dist/
+
+# Graphql generated
+/schema.graphql

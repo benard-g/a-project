@@ -1,32 +1,23 @@
-import { ApolloServer, gql } from 'apollo-server-fastify';
+import { ApolloServer } from 'apollo-server-fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { GraphQLSchema } from 'graphql';
 
-import { Logger } from '../../utils/Logger';
+import { Context } from './Context';
 import { registerLoggerPlugin } from './plugins/loggerPlugin';
 
-// TODO use TypeGraphql
-const schema = gql`
-  type User {
-    id: ID!
-  }
-
-  type Query {
-    viewer: User!
-  }
-`;
-const resolvers = [
-  {
-    Query: {
-      viewer: () => {
-        return { id: 'some-user-id' };
-      },
-    },
-  },
-];
-
-export function createGraphqlServer(logger: Logger) {
+export function createGraphqlServer(schema: GraphQLSchema) {
   return new ApolloServer({
-    typeDefs: schema,
-    resolvers,
-    plugins: [registerLoggerPlugin(logger)],
+    context: (ctx): Context => {
+      const request = ctx.request as FastifyRequest;
+      const reply = ctx.reply as FastifyReply;
+
+      return {
+        reply,
+        request,
+        serviceLocator: request.serviceLocator,
+      };
+    },
+    plugins: [registerLoggerPlugin()],
+    schema,
   });
 }
