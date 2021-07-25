@@ -1,12 +1,25 @@
 import fastify from 'fastify';
 
-import { Logger } from '../utils/Logger';
+import { ServiceLocator } from '../utils/ServiceLocator';
 import { createGraphqlServer } from './graphql';
+import { createLoggerContextPlugin } from './plugins/loggerContextPlugin';
+import { createServiceLocatorPlugin } from './plugins/serviceLocatorPlugin';
+import { createTraceIdPlugin } from './plugins/traceIdPlugin';
 
-export async function createServer(logger: Logger) {
+interface Options {
+  serviceLocator: ServiceLocator;
+}
+
+export async function createServer(options: Options) {
+  const { serviceLocator } = options;
+
   const app = fastify();
 
-  const graphqlServer = createGraphqlServer(logger);
+  // Register plugins
+  app.register(createServiceLocatorPlugin(serviceLocator));
+  app.register(createTraceIdPlugin());
+  app.register(createLoggerContextPlugin());
+
   await graphqlServer.start();
   app.register(graphqlServer.createHandler({ path: '/api/graphql' }));
 
