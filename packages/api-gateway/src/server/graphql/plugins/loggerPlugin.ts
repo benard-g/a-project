@@ -2,14 +2,16 @@ import { ApolloError } from 'apollo-server-fastify';
 import { GraphQLError } from 'graphql';
 
 import { Logger } from '../../../utils/Logger';
+import { Context } from '../Context';
 import { PluginDefinition } from './types/PluginDefinition';
 
-export function registerLoggerPlugin(logger: Logger): PluginDefinition {
+export function registerLoggerPlugin(): PluginDefinition {
   return {
-    requestDidStart: async ({ request }) => {
+    requestDidStart: async ({ request, context }) => {
       const { operationName, variables } = request;
+      const { serviceLocator } = context as Context;
 
-      // TODO get logger from context
+      const logger = serviceLocator.get(Logger);
       logger.debug('[graphql] New query', { operationName, variables });
 
       return {

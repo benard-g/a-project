@@ -12,7 +12,10 @@ interface Options {
 export class Logger {
   private readonly logger: Pino.Logger;
 
-  private constructor(pinoLogger: Pino.Logger) {
+  /**
+   * @deprecated Logger should be created using `Logger.createNew({})`
+   */
+  constructor(pinoLogger: Pino.Logger) {
     this.logger = pinoLogger;
   }
 
