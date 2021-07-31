@@ -9,5 +9,6 @@ module.exports = {
   },
   extends: ['react-app', 'react-app/jest', 'plugin:react-hooks/recommended'],
   plugins: ['react-hooks'],
+  ignorePatterns: ['*.codegen.ts'],
   rules: {},
 };
