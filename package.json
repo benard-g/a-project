@@ -12,6 +12,7 @@
     "dev:codegen": "yarn graphql:generate-typings --watch -s",
     "dev:api-gateway": "yarn workspace @a-project/api-gateway run dev",
     "dev:web-app": "yarn workspace @a-project/web-app run start",
+    "test": "wsrun -a test",
     "graphql:generate-schema": "yarn workspace @a-project/api-gateway run script:generate-schema",
     "graphql:generate-typings": "graphql-codegen --config graphql-codegen.config.js"
   },

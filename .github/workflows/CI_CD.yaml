@@ -1,0 +1,32 @@
+name: 'Test & Deploy'
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  TESTS:
+    name: 'Automated tests'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      # Compute cache key and restore existing cache if possible
+      - id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: 'Install dependencies'
+        run: yarn install --prefer-offline
+      - name: 'Build projects'
+        run: yarn build
+      - name: 'Run tests'
+        run: yarn test
