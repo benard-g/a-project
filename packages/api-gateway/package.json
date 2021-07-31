@@ -6,6 +6,7 @@
     "start": "node ./build/main.js",
     "build": "tsc -p tsconfig.production.json",
     "dev": "tsc-watch -p tsconfig.json --onSuccess 'yarn start' --preserveWatchOutput",
+    "script:generate-schema": "ts-node src/scripts/generateSchema.ts",
     "test": "yarn test:lint && yarn test:jest",
     "test:jest": "yarn jest --coverage",
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
@@ -31,6 +32,7 @@
     "jest": "^27.0.6",
     "pino-pretty": "^5.1.1",
     "ts-jest": "^27.0.3",
+    "ts-node": "^10.1.0",
     "tsc-watch": "^4.4.0",
     "typescript": "^4.3.5"
   }

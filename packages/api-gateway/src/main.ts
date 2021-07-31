@@ -6,8 +6,6 @@ import { createServer } from './server';
 import { Logger } from './utils/Logger';
 import { ServiceLocator } from './utils/ServiceLocator';
 
-const SCHEMA_GENERATION_PATH = '../../schema.graphql';
-
 export async function main(config: Config, serviceLocator: ServiceLocator) {
   const isDevMode = config.NODE_ENV === 'development';
 
@@ -16,7 +14,7 @@ export async function main(config: Config, serviceLocator: ServiceLocator) {
   logger.info('[app] Server starting...');
   const server = await createServer({
     serviceLocator,
-    emitSchemaFile: isDevMode ? SCHEMA_GENERATION_PATH : false,
+    emitSchemaFile: isDevMode ? config.GRAPHQL_SCHEMA_GENERATION_PATH : false,
   });
   await server.listen(config.PORT);
   logger.info('[app] Server started', { port: config.PORT });
