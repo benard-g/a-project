@@ -1,8 +1,14 @@
 import * as TypeGraphql from 'type-graphql';
 
+import { LobbyResolvers } from './resolvers/lobby';
 import { QueryResolvers } from './resolvers/query';
+import { ViewerResolvers } from './resolvers/viewer';
 
-const RESOLVERS = [...QueryResolvers] as const;
+const RESOLVERS = [
+  ...LobbyResolvers,
+  ...QueryResolvers,
+  ...ViewerResolvers,
+] as const;
 
 interface Options {
   emitSchemaFile: string | false;

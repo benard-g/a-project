@@ -3,6 +3,7 @@ import { GraphQLError } from 'graphql';
 
 import { Logger } from '../../../utils/Logger';
 import { Context } from '../Context';
+
 import { PluginDefinition } from './types/PluginDefinition';
 
 export function registerLoggerPlugin(): PluginDefinition {

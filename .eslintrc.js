@@ -18,7 +18,23 @@ module.exports = {
       { vars: 'all', args: 'all', argsIgnorePattern: '^_' },
     ],
     'no-return-await': 'error',
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Side effect imports.
+          ['^\\u0000'],
+          // Node.js built-ins.
+          [`^(${require('module').builtinModules.join('|')})(/|$)`],
+          // External packages.
+          ['^@?\\w'],
+          // Parent imports. Put `..` last.
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+        ],
+      },
+    ],
     'sort-imports': 'off',
   },
 };

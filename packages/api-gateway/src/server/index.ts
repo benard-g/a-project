@@ -1,8 +1,9 @@
 import fastify from 'fastify';
 
 import { ServiceLocator } from '../utils/ServiceLocator';
-import { createGraphqlServer } from './graphql';
+
 import { buildSchema } from './graphql/buildSchema';
+import { createGraphqlServer } from './graphql/server';
 import { createLoggerContextPlugin } from './plugins/loggerContextPlugin';
 import { createServiceLocatorPlugin } from './plugins/serviceLocatorPlugin';
 import { createTraceIdPlugin } from './plugins/traceIdPlugin';
