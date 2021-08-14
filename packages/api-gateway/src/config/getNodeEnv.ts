@@ -1,6 +1,5 @@
 import { getFromEnv } from './utils/env';
-
-export type NodeEnv = 'production' | 'development' | 'test';
+import { NodeEnv } from './types';
 
 export function getNodeEnv(): NodeEnv {
   const nodeEnv = getFromEnv('NODE_ENV', null);

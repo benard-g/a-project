@@ -1,10 +1,10 @@
 import 'source-map-support/register';
 import 'reflect-metadata';
 
-import { Config, loadConfig } from './config';
-import { createServer } from './server';
 import { Logger } from './utils/Logger';
 import { ServiceLocator } from './utils/ServiceLocator';
+import { Config, loadConfig } from './config';
+import { createServer } from './server';
 
 export async function main(config: Config, serviceLocator: ServiceLocator) {
   const isDevMode = config.NODE_ENV === 'development';

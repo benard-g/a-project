@@ -1,6 +1,6 @@
+import { getFromEnv, getNumberFromEnv } from './utils/env';
 import { getLogLevelFromEnv } from './getLogLevelFromEnv';
 import { getNodeEnv } from './getNodeEnv';
-import { getFromEnv, getNumberFromEnv } from './utils/env';
 
 const DEFAULT_PORT = 8080;
 const DEFAULT_GRAPHQL_SCHEMA_GENERATION_PATH = '../../schema.graphql';

@@ -2,8 +2,8 @@ import { ApolloServer } from 'apollo-server-fastify';
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { GraphQLSchema } from 'graphql';
 
-import { Context } from './Context';
 import { registerLoggerPlugin } from './plugins/loggerPlugin';
+import { Context } from './Context';
 
 export function createGraphqlServer(schema: GraphQLSchema) {
   return new ApolloServer({
