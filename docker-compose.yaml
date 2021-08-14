@@ -1,0 +1,19 @@
+# Configuration for local development
+version: '3'
+services:
+  db:
+    build:
+      context: '.'
+      dockerfile: './docker/local-db.Dockerfile'
+    ports:
+      - 5432:5432
+
+  pg-admin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 8888:80

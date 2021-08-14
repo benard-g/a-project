@@ -1,4 +1,5 @@
 import { getFromEnv, getNumberFromEnv } from './utils/env';
+import { getDatabaseUri } from './getDatabaseUri';
 import { getLogLevelFromEnv } from './getLogLevelFromEnv';
 import { getNodeEnv } from './getNodeEnv';
 
@@ -10,6 +11,7 @@ export function loadConfig() {
   const isDevMode = nodeEnv !== 'production';
 
   return {
+    DATABASE_URL: getDatabaseUri(nodeEnv),
     GRAPHQL_SCHEMA_GENERATION_PATH: getFromEnv(
       'GRAPHQL_SCHEMA_GENERATION_PATH',
       DEFAULT_GRAPHQL_SCHEMA_GENERATION_PATH,
