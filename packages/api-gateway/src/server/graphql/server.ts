@@ -10,11 +10,13 @@ export function createGraphqlServer(schema: GraphQLSchema) {
     context: (ctx): Context => {
       const request = ctx.request as FastifyRequest;
       const reply = ctx.reply as FastifyReply;
+      const userId = request.userContext.userId;
 
       return {
         reply,
         request,
         serviceLocator: request.serviceLocator,
+        userId,
       };
     },
     plugins: [registerLoggerPlugin()],

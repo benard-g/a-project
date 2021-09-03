@@ -6,4 +6,5 @@ export interface Context {
   reply: FastifyReply;
   request: FastifyRequest;
   serviceLocator: ServiceLocator;
+  userId: string;
 }

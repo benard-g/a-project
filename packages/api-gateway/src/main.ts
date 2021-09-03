@@ -4,6 +4,8 @@ import 'reflect-metadata';
 import { Connection } from 'typeorm';
 
 import { createDatabaseConnection } from './model/database';
+import { AuthService } from './services/auth/AuthService';
+import { Jwt } from './utils/Jwt';
 import { Logger } from './utils/Logger';
 import { ServiceLocator } from './utils/ServiceLocator';
 import { Config, loadConfig } from './config';
@@ -13,6 +15,14 @@ export async function main(config: Config, serviceLocator: ServiceLocator) {
   const isDevMode = config.NODE_ENV === 'development';
 
   const logger = serviceLocator.get(Logger);
+  logger.info('[app] Services initializing...');
+  const jwtUtils = new Jwt(config.JWT_SECRET_KEY);
+  const authService = new AuthService(
+    { accessTokenDuration: config.ACCESS_TOKEN_DURATION },
+    jwtUtils,
+  );
+  serviceLocator.set(AuthService, authService);
+  logger.info('[app] Services initialized');
 
   logger.info('[app] Database connecting...');
   const conn = await createDatabaseConnection({
@@ -42,7 +52,7 @@ if (require.main === module) {
   const serviceLocator = ServiceLocator.createNew();
   serviceLocator.set(Logger, logger);
 
-  main(config, serviceLocator).catch((err) => {
+  main(config, serviceLocator).catch((err: Error) => {
     logger.error('[app] Unexpected error during startup', { err });
     process.exit(1);
   });

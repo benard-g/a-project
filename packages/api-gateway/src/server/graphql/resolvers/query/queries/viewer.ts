@@ -1,14 +1,15 @@
-import { Query, Resolver } from 'type-graphql';
+import { Ctx, Query, Resolver } from 'type-graphql';
 
+import { Context } from '../../../Context';
 import { ViewerType } from '../../../types/ViewerType';
 
 @Resolver()
 export class Query_viewer_Resolver {
   @Query()
-  viewer(): ViewerType {
+  viewer(@Ctx() context: Context): ViewerType {
+    const { userId } = context;
     return {
-      id: 'some-user-id',
-      name: 'Adam',
+      id: userId,
     };
   }
 }
