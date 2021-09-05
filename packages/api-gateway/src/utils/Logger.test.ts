@@ -21,6 +21,10 @@ describe('utils/Logger', () => {
     } as unknown as Pino.Logger);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   const createAndCallLoggerForLevel = (
     level: 'debug' | 'info' | 'warn' | 'error',
   ) => {

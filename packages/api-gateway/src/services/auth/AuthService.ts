@@ -3,7 +3,7 @@ import { Jwt } from '../../utils/Jwt';
 import { AuthTokens, DecodedAccessToken, TokenArgs, TokenType } from './types';
 
 interface Options {
-  accessTokenDuration: number;
+  accessTokenDurationInSeconds: number;
 }
 
 interface GenerateAuthTokensOptions {
@@ -17,10 +17,10 @@ interface ValidateTokensResult {
 }
 
 export class AuthService {
-  private readonly accessTokenDuration: number;
+  private readonly accessTokenDurationInSeconds: number;
 
   constructor(options: Options, private readonly jwt: Jwt) {
-    this.accessTokenDuration = options.accessTokenDuration;
+    this.accessTokenDurationInSeconds = options.accessTokenDurationInSeconds;
   }
 
   async generateAuthTokens(
@@ -35,7 +35,7 @@ export class AuthService {
         type: TokenType.ACCESS,
         userId,
       },
-      { expiresInSeconds: this.accessTokenDuration },
+      { expiresInSeconds: this.accessTokenDurationInSeconds },
     );
 
     return { accessToken };

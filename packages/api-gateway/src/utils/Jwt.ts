@@ -3,7 +3,7 @@ import JsonWebToken from 'jsonwebtoken';
 type Payload = Record<string, any>;
 
 interface CreateTokenOptions {
-  expiresInSeconds?: number;
+  expiresInSeconds: number;
 }
 
 export class Jwt {
@@ -11,10 +11,10 @@ export class Jwt {
 
   async createToken<T extends Payload>(
     payload: T,
-    options?: CreateTokenOptions,
+    options: CreateTokenOptions,
   ): Promise<string> {
     return new Promise((resolve, reject) => {
-      const { expiresInSeconds } = options || {};
+      const { expiresInSeconds } = options;
       JsonWebToken.sign(
         payload,
         this.secretKey,
@@ -34,7 +34,7 @@ export class Jwt {
 
   async decodeToken<T extends Payload>(token: string): Promise<T> {
     return new Promise((resolve, reject) => {
-      JsonWebToken.verify(token, this.secretKey, (err, decodedPayload) => {
+      JsonWebToken.verify(token, this.secretKey, {}, (err, decodedPayload) => {
         if (err || !decodedPayload) {
           reject(
             err || new Error('An error occurred while decoding the token'),
