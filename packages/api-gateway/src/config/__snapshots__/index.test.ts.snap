@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config development should use default values 1`] = `
+Object {
+  "ACCESS_TOKEN_DURATION": 604800,
+  "DATABASE_URL": "postgres://postgres:password@localhost:5432/postgres",
+  "GRAPHQL_SCHEMA_GENERATION_PATH": "../../schema.graphql",
+  "JWT_SECRET_KEY": "jwt-secret-key",
+  "LOG_LEVEL": "debug",
+  "NODE_ENV": "development",
+  "PORT": 8080,
+}
+`;
+
+exports[`config test should use default values 1`] = `
+Object {
+  "ACCESS_TOKEN_DURATION": 604800,
+  "DATABASE_URL": "postgres://postgres:password@localhost:2345/postgres",
+  "GRAPHQL_SCHEMA_GENERATION_PATH": false,
+  "JWT_SECRET_KEY": "jwt-secret-key",
+  "LOG_LEVEL": "debug",
+  "NODE_ENV": "test",
+  "PORT": 8080,
+}
+`;

@@ -21,7 +21,7 @@ if (require.main === module) {
 
   const logger = Logger.createNew({
     enabled: config.NODE_ENV !== 'test',
-    minLevel: config.LOG_LEVEL,
+    minLevel: config.LOG_LEVEL as 'debug' | 'info' | 'warn' | 'error',
     prettyPrint: config.NODE_ENV === 'development',
   });
 

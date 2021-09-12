@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "include": ["src"],
-  "exclude": ["src/**/*.test.ts"],
+  "exclude": ["src/**/*.test.ts", "src/__utils__"],
   "compilerOptions": {
     "outDir": "./build",
     "types": ["node"],
