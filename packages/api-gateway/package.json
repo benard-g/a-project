@@ -30,14 +30,14 @@
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",
-    "@types/node": "^16.9.1",
+    "@types/node": "^16.11.0",
     "@types/pino": "^6.3.9",
     "@types/source-map-support": "^0.5.4",
     "jest": "^27.1.1",
     "pino-pretty": "^5.1.1",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.1.0",
-    "tsc-watch": "^4.4.0",
+    "tsc-watch": "^4.5.0",
     "typescript": "^4.4.3"
   }
 }
