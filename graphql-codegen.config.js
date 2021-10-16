@@ -14,4 +14,7 @@ module.exports = {
       plugins: ['typescript-operations', 'typescript-react-apollo'],
     },
   },
+  hooks: {
+    afterOneFileWrite: ['prettier --write'],
+  },
 };
