@@ -1,0 +1,14 @@
+name: 'Dependabot'
+on:
+  pull_request_target:
+
+jobs:
+  AUTO_MERGE:
+    name: 'Auto merge'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.DEPENDABOT_GITHUB_TOKEN }}
