@@ -15,7 +15,7 @@
     "@types/uuid": "^8.3.1",
     "apollo-server-fastify": "^3.3.0",
     "class-validator": "^0.13.1",
-    "fastify": "^3.19.1",
+    "fastify": "^3.22.0",
     "fastify-plugin": "^3.0.0",
     "graphql": "^15.5.1",
     "jsonwebtoken": "^8.5.1",
