@@ -9662,6 +9662,11 @@ json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
+json-stringify-safe@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
+  integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+
 json-to-pretty-yaml@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/json-to-pretty-yaml/-/json-to-pretty-yaml-1.2.2.tgz#f4cd0bd0a5e8fe1df25aaf5ba118b099fd992d5b"
@@ -10869,6 +10874,11 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
+on-exit-leak-free@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/on-exit-leak-free/-/on-exit-leak-free-0.2.0.tgz#b39c9e3bf7690d890f4861558b0d7b90a442d209"
+  integrity sha512-dqaz3u44QbRXQooZLTUKU41ZrzYrcvLISVgbrzbyCMxpmSLJvZ3ZamIJIZ29P6OhZIkNIQKosdeM6t1LYbA9hg==
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -11377,7 +11387,7 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pino-abstract-transport@^0.4.0:
+pino-abstract-transport@^0.4.0, pino-abstract-transport@v0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/pino-abstract-transport/-/pino-abstract-transport-0.4.0.tgz#be5913fa55542f82fccb77f6a9e04735fa583cac"
   integrity sha512-Znl3f1ntZnDG+NpCyJyJDS+lkrlRSbgQBkV3eqNAvet/QHql6rhKLc4DuYRlwfc3fvV611O9NXPm5pbT9AJ50g==
@@ -11408,7 +11418,12 @@ pino-std-serializers@^3.1.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-3.2.0.tgz#b56487c402d882eb96cd67c257868016b61ad671"
   integrity sha512-EqX4pwDPrt3MuOAAUBMU0Tk5kR/YcCM5fNPEzgCO2zJ5HfX0vbiH9HbJglnyeQsN96Kznae6MWD47pZB5avTrg==
 
-pino@^6.13.0, pino@^6.13.3:
+pino-std-serializers@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-4.0.0.tgz#1791ccd2539c091ae49ce9993205e2cd5dbba1e2"
+  integrity sha512-cK0pekc1Kjy5w9V2/n+8MkZwusa6EyyxfeQCB799CQRhRt/CqYKiWs5adeu8Shve2ZNffvfC/7J64A2PJo1W/Q==
+
+pino@^6.13.0:
   version "6.13.3"
   resolved "https://registry.yarnpkg.com/pino/-/pino-6.13.3.tgz#60b93bcda1541f92fb37b3f2be0a25cf1d05b6fe"
   integrity sha512-tJy6qVgkh9MwNgqX1/oYi3ehfl2Y9H0uHyEEMsBe74KinESIjdMrMQDWpcZPpPicg3VV35d/GLQZmo4QgU2Xkg==
@@ -11420,6 +11435,22 @@ pino@^6.13.0, pino@^6.13.3:
     pino-std-serializers "^3.1.0"
     quick-format-unescaped "^4.0.3"
     sonic-boom "^1.0.2"
+
+pino@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-7.0.3.tgz#b4faa900f63c731f65c9ebb3e6da3ec285b44b91"
+  integrity sha512-tKlw7lqnrdLkQFmrhcTNmZiHkqVHAINwlhYGPKQ8GlyahgImEJ6StZJ/4jWvlbrRLMz4pMPcrzoqZEbNL4dj7w==
+  dependencies:
+    fast-redact "^3.0.0"
+    fastify-warning "^0.2.0"
+    get-caller-file "^2.0.5"
+    json-stringify-safe "^5.0.1"
+    on-exit-leak-free "^0.2.0"
+    pino-abstract-transport v0.4.0
+    pino-std-serializers "^4.0.0"
+    quick-format-unescaped "^4.0.3"
+    sonic-boom "^2.2.1"
+    thread-stream "^0.11.1"
 
 pirates@^4.0.1:
   version "4.0.1"
@@ -13577,7 +13608,7 @@ sonic-boom@^1.0.2:
     atomic-sleep "^1.0.0"
     flatstr "^1.0.12"
 
-sonic-boom@^2.2.0:
+sonic-boom@^2.2.0, sonic-boom@^2.2.1:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-2.3.0.tgz#b1622bbd29111ed12be94a644ea6b586b6daea70"
   integrity sha512-lEPaw654/4/rCJHz/TNzV4GIthqCq4inO+O3aFhbdOvR1bE+2//sVkcS+xlqPdb8gdjQCEE0hE9BuvnVixbnWQ==
@@ -14284,6 +14315,11 @@ thenify-all@^1.0.0:
   integrity sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==
   dependencies:
     any-promise "^1.0.0"
+
+thread-stream@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-0.11.1.tgz#9af0f4b4b9b44744729897bc1665decb2bad2315"
+  integrity sha512-YbZEIo+JcScRekY1bl7O717RZGA/1eT7t4n9uyKf5Fu7TYpZKuml185bQdV3l2pgoq0wCobkQySWxdNEORkghg==
 
 throat@^4.0.0, throat@^4.1.0:
   version "4.1.0"
