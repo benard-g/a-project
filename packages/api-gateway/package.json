@@ -25,7 +25,7 @@
     "source-map-support": "^0.5.19",
     "tsyringe": "^4.6.0",
     "type-graphql": "^1.1.1",
-    "typeorm": "^0.2.37",
+    "typeorm": "^0.2.38",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
