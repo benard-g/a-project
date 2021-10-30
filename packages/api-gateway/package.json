@@ -17,7 +17,7 @@
     "class-validator": "^0.13.1",
     "fastify": "^3.22.0",
     "fastify-plugin": "^3.0.0",
-    "graphql": "^15.6.1",
+    "graphql": "^15.7.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "pino": "^7.0.3",
