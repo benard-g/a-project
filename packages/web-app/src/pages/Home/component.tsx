@@ -1,8 +1,6 @@
-import { FC } from 'react';
-
 import { useHomePageQuery } from './query.codegen';
 
-const HomePage: FC = () => {
+function HomePage() {
   const { loading, data } = useHomePageQuery();
 
   return (
@@ -15,6 +13,6 @@ const HomePage: FC = () => {
       />
     </div>
   );
-};
+}
 
 export default HomePage;

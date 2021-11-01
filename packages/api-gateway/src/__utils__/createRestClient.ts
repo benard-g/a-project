@@ -24,7 +24,11 @@ export async function createRestClient() {
   serviceLocator.set(Logger, logger);
   serviceLocator.set(AuthService, authService);
 
-  return createServer({ emitSchemaFile: false, serviceLocator });
+  return createServer({
+    allowedCorsOrigin: '*',
+    emitSchemaFile: false,
+    serviceLocator,
+  });
 }
 
 export type RestClient = UnwrapPromise<ReturnType<typeof createRestClient>>;

@@ -5,6 +5,9 @@ module.exports = {
     'packages/web-app/src/services/graphql/types.codegen.ts': {
       plugins: ['typescript'],
     },
+    'packages/web-app/src/services/graphql/possibleTypes.codegen.ts': {
+      plugins: ['fragment-matcher'],
+    },
     'packages/web-app/src/': {
       preset: 'near-operation-file',
       presetConfig: {

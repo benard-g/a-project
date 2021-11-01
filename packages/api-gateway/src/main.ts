@@ -31,6 +31,7 @@ export async function main(config: Config, serviceLocator: ServiceLocator) {
 
   logger.info('[app] Server starting...');
   const server = await createServer({
+    allowedCorsOrigin: config.ALLOWED_CORS_ORIGIN,
     serviceLocator,
     emitSchemaFile: config.GRAPHQL_SCHEMA_GENERATION_PATH,
   });

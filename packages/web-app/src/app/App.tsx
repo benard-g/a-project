@@ -1,16 +1,13 @@
-import { ApolloProvider } from '@apollo/client';
-import { FC } from 'react';
+import { AuthenticationProvider } from '../hooks/authentication';
 
-import { createClient as createGraphqlClient } from '../services/graphql/createClient';
+import AppRouter from './routes/AppRouter';
 
-import AppRouter from './AppRouter';
-
-const App: FC = () => {
+function App() {
   return (
-    <ApolloProvider client={createGraphqlClient()}>
+    <AuthenticationProvider>
       <AppRouter />
-    </ApolloProvider>
+    </AuthenticationProvider>
   );
-};
+}
 
 export default App;
