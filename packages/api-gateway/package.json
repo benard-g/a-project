@@ -12,7 +12,7 @@
     "test:lint": "eslint --max-warnings=0 'src/**/*.{js,ts}'"
   },
   "dependencies": {
-    "@types/uuid": "^8.3.1",
+    "@types/uuid": "^8.3.3",
     "apollo-server-fastify": "^3.4.0",
     "class-validator": "^0.13.1",
     "fastify": "^3.23.1",
