@@ -36,7 +36,7 @@
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "graphql": "^15.7.2",
+    "graphql": "^15.8.0",
     "prettier": "^2.5.1",
     "wsrun": "^5.2.4"
   }
